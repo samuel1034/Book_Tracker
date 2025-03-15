@@ -9,6 +9,7 @@ class Book (models.Model):
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=100)
     genre = models.CharField(max_length=100, blank=True, null=True )
+    rating = models.IntegerField(blank=True, null=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='to_read')
     created_at = models.DateTimeField(auto_now=True)
 
