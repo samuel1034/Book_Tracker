@@ -16,7 +16,7 @@ def add_book (request):
         form = BookForm()
     return render(request, 'books/add_book.html', {'form': form})
 
-def edit_book (request):
+def edit_book (request,pk):
     book = get_object_or_404(Book, pk=pk)
     if request.method == 'POST':
         form = BookForm(request.POST, instance=book)
@@ -25,7 +25,7 @@ def edit_book (request):
             return redirect('book_list')
 
     else:
-        form = BookForm()
+        form = BookForm(instance=book)
     return render(request, 'books/edit_book.html', {'form': form})
 
 
